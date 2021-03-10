@@ -13,9 +13,7 @@ class MainActivity : AppCompatActivity() {
 
     val viewModel: DrinkViewModel by viewModels()
 
-    private val adapter = DrinkListAdapter().apply {
-        submitList(listOf(Drink()))
-    }
+    private val adapter = DrinkListAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
