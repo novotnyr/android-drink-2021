@@ -37,6 +37,6 @@ class MainActivity : AppCompatActivity() {
                 }
                 .show()
 
-        adapter.submitList(adapter.currentList + Drink())
+        viewModel.addDrink()
     }
 }
