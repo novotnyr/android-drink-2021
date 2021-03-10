@@ -1,13 +1,17 @@
 package com.github.novotnyr.drink
 
-import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 
-class DrinkViewModel : ViewModel() {
-    val drinks = MutableLiveData<List<Drink>>(emptyList())
+class DrinkViewModel(private val state: SavedStateHandle) : ViewModel() {
+    val drinks: LiveData<List<Drink>>
+        get() {
+            return state.getLiveData("drinks")
+        }
 
     fun addDrink() {
         val oldDrinks = drinks.value ?: emptyList()
-        drinks.value = oldDrinks + Drink()
+        state["drinks"] = oldDrinks + Drink()
     }
 }
