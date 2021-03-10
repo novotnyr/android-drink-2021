@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
 
     inner class SwipeHelper : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
         override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-
+            viewModel.removeDrink(viewHolder.adapterPosition)
         }
 
         override fun onMove(r: RecyclerView, v: RecyclerView.ViewHolder, t: RecyclerView.ViewHolder) = false
