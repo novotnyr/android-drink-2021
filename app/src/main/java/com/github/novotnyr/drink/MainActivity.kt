@@ -3,12 +3,15 @@ package com.github.novotnyr.drink
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.activity.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
 
 class MainActivity : AppCompatActivity() {
     lateinit var drinkRecyclerView: RecyclerView
+
+    val viewModel: DrinkViewModel by viewModels()
 
     private val adapter = DrinkListAdapter().apply {
         submitList(listOf(Drink()))
