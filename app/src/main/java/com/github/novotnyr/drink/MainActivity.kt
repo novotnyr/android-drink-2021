@@ -2,6 +2,7 @@ package com.github.novotnyr.drink
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
@@ -20,4 +21,6 @@ class MainActivity : AppCompatActivity() {
         drinkRecyclerView.layoutManager = GridLayoutManager(this, 3)
         drinkRecyclerView.adapter = adapter
     }
+
+    fun onFloatingActionButtonClick(view: View) {}
 }
