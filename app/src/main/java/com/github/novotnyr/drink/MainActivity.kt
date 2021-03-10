@@ -24,6 +24,10 @@ class MainActivity : AppCompatActivity() {
         drinkRecyclerView = findViewById(R.id.drinkRecyclerView)
         drinkRecyclerView.layoutManager = GridLayoutManager(this, 3)
         drinkRecyclerView.adapter = adapter
+
+        viewModel.drinks.observe(this) {
+            adapter.submitList(it)
+        }
     }
 
     fun onFloatingActionButtonClick(floatingActionButton: View) {
