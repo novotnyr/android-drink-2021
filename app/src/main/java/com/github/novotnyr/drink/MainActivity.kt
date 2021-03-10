@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
 
@@ -23,6 +24,9 @@ class MainActivity : AppCompatActivity() {
         drinkRecyclerView.layoutManager = GridLayoutManager(this, 3)
         drinkRecyclerView.adapter = adapter
 
+        ItemTouchHelper(SwipeHelper())
+            .attachToRecyclerView(drinkRecyclerView)
+
         viewModel.drinks.observe(this) {
             adapter.submitList(it)
         }
@@ -36,5 +40,13 @@ class MainActivity : AppCompatActivity() {
                 .show()
 
         viewModel.addDrink()
+    }
+
+    inner class SwipeHelper : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
+        override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+
+        }
+
+        override fun onMove(r: RecyclerView, v: RecyclerView.ViewHolder, t: RecyclerView.ViewHolder) = false
     }
 }
