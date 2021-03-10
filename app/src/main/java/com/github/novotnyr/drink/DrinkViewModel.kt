@@ -14,4 +14,9 @@ class DrinkViewModel(private val state: SavedStateHandle) : ViewModel() {
         val oldDrinks = drinks.value ?: emptyList()
         state["drinks"] = oldDrinks + Drink()
     }
+
+    fun removeDrink(position: Int) {
+        val oldDrinks = drinks.value ?: emptyList()
+        state["drinks"] = oldDrinks - oldDrinks.elementAt(position)
+    }
 }
