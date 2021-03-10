@@ -29,5 +29,7 @@ class MainActivity : AppCompatActivity() {
                     anchorView = floatingActionButton
                 }
                 .show()
+
+        adapter.submitList(adapter.currentList + Drink())
     }
 }
